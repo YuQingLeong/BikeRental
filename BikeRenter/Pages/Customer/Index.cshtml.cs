@@ -11,7 +11,7 @@ namespace BikeRenter.Pages.Customer
         {
             try
             {
-                String connectionString = "Data Source =.\\sqlexpress; Initial Catalog = BikeRental; Integrated Security = True; Encrypt = True; Trust Server Certificate = True;";
+                String connectionString = "Data Source =.\\sqlexpress; Initial Catalog = BikeRental";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
