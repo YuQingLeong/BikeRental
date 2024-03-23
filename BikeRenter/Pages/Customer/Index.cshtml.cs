@@ -11,7 +11,7 @@ namespace BikeRenter.Pages.Customer
         {
             try
             {
-                String connectionString = "Data Source =.\\sqlexpress; Initial Catalog = BikeRental";
+                String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=BikeRental;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -24,7 +24,7 @@ namespace BikeRenter.Pages.Customer
                             while (reader.Read()) 
                             {
                                 CustomerInfo customerInfo = new CustomerInfo();
-                                customerInfo.id = "" + reader.GetInt32(0);
+                                customerInfo.CustomerID = "" + reader.GetInt32(0);
                                 customerInfo.name = reader.GetString(1);
                                 customerInfo.email = reader.GetString(2);
                                 customerInfo.phone = reader.GetString(3);
@@ -45,7 +45,7 @@ namespace BikeRenter.Pages.Customer
 
     public class CustomerInfo
     {
-        public String id;
+        public String CustomerID;
         public String name;
         public String email;
         public String phone;
