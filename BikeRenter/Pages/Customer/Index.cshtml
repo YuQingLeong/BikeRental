@@ -1,0 +1,36 @@
+﻿@page
+@model BikeRenter.Pages.Customer.IndexModel
+@{
+}
+
+<br>
+<h2>List of Customers</h2>
+<a class='btn btn-primary btn-sm' href='/Customer/Create'>New Customer</a>
+<table class ="table">
+    <thread>
+        <tr>
+            <th>CustomerID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach(var item in Model.listCustomers)
+        {
+            <tr>
+                <td>@item.CustomerID</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Customer/Edit?id=@item.CustomerID">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Customer/Delete?id=@item.CustomerID">Delete</a>
+                 </td>
+            </tr>
+        }
+    </tbody>
+</table>
