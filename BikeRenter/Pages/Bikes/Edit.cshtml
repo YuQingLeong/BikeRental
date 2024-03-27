@@ -1,10 +1,11 @@
 ﻿@page
-@model BikeRenter.Pages.Customer.CreateModel
+@model BikeRenter.Pages.Bikes.EditModel
 @{
 }
 
+
 <br>
-<h2>New Customer</h2>
+<h2>Edit Bikes</h2>
 
 @if (Model.errorMessage.Length>0) {
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -13,30 +14,27 @@
     </div>
 }
 <form method="POST">
+    <input type="hidden" name="BikeID" value="@Model.bikeInfo.BikeID">
+
     <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">Name</label>
+        <label class="col-sm-3 col-form-label">Type</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="name" value="@Model.customerInfo.name">
+            <input type="text" class="form-control" name="type" value="@Model.bikeInfo.type">
         </div>
     </div>
     <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">Email</label>
+        <label class="col-sm-3 col-form-label">Model</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="email" value="@Model.customerInfo.email">
+            <input type="text" class="form-control" name="model" value="@Model.bikeInfo.model">
         </div>
     </div>
-    <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">Phone</label>
+        <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Price</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="phone" value="@Model.customerInfo.phone">
+            <input type="text" class="form-control" name="price" value="@Model.bikeInfo.price">
         </div>
     </div>
-    <div class="row mb-3">
-        <label class="col-sm-3 col-form-label">Adress</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" name="address" value="@Model.customerInfo.address">
-        </div>
-     </div>
+
 
         @if (Model.successMessage.Length > 0){
         <div class="row mb-3">
