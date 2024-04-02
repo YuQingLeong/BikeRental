@@ -1,0 +1,70 @@
+﻿@page
+@model BikeRenter.Pages.Rental.CreateModel
+@{
+}
+
+<br>
+<h2>New Rental</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<form method="POST">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">CustomerID</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="CustomerID" value="@Model.rentalInfo.CustomerID">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">BikeID</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="BikeID" value="@Model.rentalInfo.BikeID">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">PaymentID</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="PaymentID" value="@Model.rentalInfo.PaymentID">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">rentalDuration</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="rentalDuration" value="@Model.rentalInfo.rentalDuration">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">rentalStartTime</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="rentalStartTime" value="@Model.rentalInfo.rentalStartTime">
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" classn="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+
+        </div>
+
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid ">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

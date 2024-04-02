@@ -1,0 +1,38 @@
+﻿@page
+@model BikeRenter.Pages.Rental.IndexModel
+@{
+}
+
+<br>
+<h2>List of Rentals</h2>
+<a class='btn btn-primary btn-sm' href='/Rental/Create'>New Rental</a>
+<table class="table">
+    <thread>
+        <tr>
+            <th>ID</th>
+            <th>CustomerID</th>
+            <th>BikeID</th>
+            <th>PaymentID</th>
+            <th>rentalDuration</th>
+            <th>rentalStartTime</th>
+            <th>Action</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach (var item in Model.listRentals)
+        {
+            <tr>
+                <td>@item.RentalID</td>
+                <td>@item.CustomerID</td>
+                <td>@item.BikeID</td>
+                <td>@item.PaymentID</td>
+                <td>@item.rentalDuration</td>
+                <td>@item.rentalStartTime</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Rental/Edit?id=@item.CustomerID">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Rental/Delete?id=@item.CustomerID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

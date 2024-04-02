@@ -1,0 +1,30 @@
+﻿@page
+@using System.Data.SqlClient;
+@{
+
+    try
+    {
+        String RentalID = Request.Query["id"];
+
+        string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=BikeRental;Integrated Security=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            String sql = "DELETE FROM Rental WHERE RentalID=@RentalID";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@RentalID", RentalID);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+
+    }
+
+    Response.Redirect("/Rental/Index");
+}
+
+
