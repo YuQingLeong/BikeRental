@@ -1,16 +1,18 @@
-﻿CREATE Table Rental (
+CREATE Table Rental (
 	RentalID INT NOT NULL PRIMARY KEY IDENTITY,
-	id INT NOT NULL,
+	CustomerID INT NOT NULL,
 	BikeID INT NOT NULL,
+	PaymentID INT NOT NULL,
 	rentalDuration DECIMAL(5,2) NOT NULL,
 	rentalStartTime DATETIME,
-    FOREIGN KEY (id) REFERENCES Customer(id) ON DELETE CASCADE,
-    FOREIGN KEY (BikeID) REFERENCES Bikes(BikeID) ON DELETE CASCADE
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (BikeID) REFERENCES Bikes(BikeID) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (PaymentID) REFERENCES Payment(PaymentID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO Rental (id, BikeID, rentalDuration, rentalStartTime)
+INSERT INTO Rental (CustomerID, BikeID, PaymentID, rentalDuration, rentalStartTime)
 VALUES
-(1, 1, 2.00, '1/2/2024 11:00AM'),
-(2, 2, 3, '3/2/2024 12:00PM'),
-(3, 3, 5, '3/6/2024 9:00AM'),
-(4, 4, 1, '3/9/2024 8:00AM');
+(1, 1, 2.00, 1, '2024-03-15 11:00:00'),
+(2, 2, 3, 2, '2024-03-16 13:00:00'),
+(3, 3, 5, 3, '2024-03-17 14:00:00'),
+(4, 4, 1, 4, '2024-03-18 13:00:00');
