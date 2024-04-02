@@ -1,0 +1,36 @@
+﻿@page
+@model BikeRenter.Pages.Payment.IndexModel
+@{
+}
+
+<br>
+<h2>List of Payments</h2>
+<a class='btn btn-primary btn-sm' href='/Payment/Create'>New Payment</a>
+<table class="table">
+    <thread>
+        <tr>
+            <th>ID</th>
+            <th>CustomerID</th>
+            <th>Method</th>
+            <th>Amount</th>
+            <th>Time</th>
+            <th>Action</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach (var item in Model.listPayments)
+        {
+            <tr>
+                <td>@item.PaymentID</td>
+                <td>@item.CustomerID</td>
+                <td>@item.Method</td>
+                <td>@item.Amount</td>
+                <td>@item.Time</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Payment/Edit?id=@item.PaymentID">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Payment/Delete?id=@item.PaymentID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

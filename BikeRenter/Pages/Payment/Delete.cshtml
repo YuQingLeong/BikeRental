@@ -1,0 +1,27 @@
+﻿@page
+@using System.Data.SqlClient;
+@{
+    try
+    {
+        String PaymentID = Request.Query["id"];
+
+        string connectionString = "Data Source=.\\sqlexpress;Initial Catalog=BikeRental;Integrated Security=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            String sql = "DELETE FROM Payment WHERE PaymentID=@PaymentID";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@PaymentID", PaymentID);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+
+    }
+
+    Response.Redirect("/Payment/Index");
+}
