@@ -15,14 +15,13 @@ namespace BikeRenter.Pages.Rental
         }
         public void OnPost()
         {
-            rentalInfo.RentalID = Request.Form["RentalID"];
             rentalInfo.CustomerID = Request.Form["CustomerID"];
             rentalInfo.BikeID = Request.Form["BikeID"];
             rentalInfo.PaymentID = Request.Form["PaymentID"];
             rentalInfo.rentalDuration = Request.Form["rentalDuration"];
             rentalInfo.rentalStartTime = Request.Form["rentalStartTime"];
 
-            if (rentalInfo.RentalID.Length == 0 || rentalInfo.CustomerID.Length == 0 || rentalInfo.BikeID.Length == 0 || rentalInfo.PaymentID.Length == 0 || rentalInfo.rentalDuration.Length == 0 || rentalInfo.rentalStartTime.Length == 0)
+            if (rentalInfo.CustomerID.Length == 0 || rentalInfo.BikeID.Length == 0 || rentalInfo.PaymentID.Length == 0 || rentalInfo.rentalDuration.Length == 0 || rentalInfo.rentalStartTime.Length == 0)
             {
                 errorMessage = "All the field are required";
                 return;

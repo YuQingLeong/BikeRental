@@ -32,8 +32,8 @@ namespace BikeRenter.Pages.Rental
                                 rentalInfo.CustomerID = "" + reader.GetInt32(1);
                                 rentalInfo.BikeID = "" + reader.GetInt32(2);
                                 rentalInfo.PaymentID = "" + reader.GetInt32(3);
-                                rentalInfo.rentalDuration = "" + reader.GetInt32(4);
-                                rentalInfo.rentalStartTime = reader.GetString(5);
+                                rentalInfo.rentalDuration = "" + reader.GetDecimal(4);
+                                rentalInfo.rentalStartTime = "" + reader.GetDateTime(5);
 
                             }
                         }

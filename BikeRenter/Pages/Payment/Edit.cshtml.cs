@@ -31,8 +31,8 @@ namespace BikeRenter.Pages.Payment
                                 paymentInfo.PaymentID = "" + reader.GetInt32(0);
                                 paymentInfo.CustomerID = "" + reader.GetInt32(1);
                                 paymentInfo.Method = reader.GetString(2);
-                                paymentInfo.Amount = "" + reader.GetInt32(3);
-                                paymentInfo.Time = reader.GetString(4);
+                                paymentInfo.Amount = "" + reader.GetDecimal(3);
+                                paymentInfo.Time = "" + reader.GetDateTime(4);
 
                             }
                         }

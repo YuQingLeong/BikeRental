@@ -26,10 +26,10 @@ namespace BikeRenter.Pages.Payment
                             {
                                 PaymentInfo PaymentInfo = new PaymentInfo();
                                 PaymentInfo.PaymentID = "" + reader.GetInt32(0);
-                                PaymentInfo.CustomerID = reader.GetString(1);
+                                PaymentInfo.CustomerID = "" + reader.GetInt32(1);
                                 PaymentInfo.Method = reader.GetString(2);
-                                PaymentInfo.Amount = "" + reader.GetInt32(3);
-                                PaymentInfo.Time = reader.GetString(4);
+                                PaymentInfo.Amount = "" + reader.GetDecimal(3);
+                                PaymentInfo.Time = "" + reader.GetDateTime(4);
 
                                 listPayments.Add(PaymentInfo);
                             }
