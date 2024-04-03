@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model BikeRenter.Pages.Rental.IndexModel
 @{
 }
@@ -29,8 +29,8 @@
                 <td>@item.rentalDuration</td>
                 <td>@item.rentalStartTime</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/Rental/Edit?id=@item.CustomerID">Edit</a>
-                    <a class="btn btn-danger btn-sm" href="/Rental/Delete?id=@item.CustomerID">Delete</a>
+                    <a class="btn btn-primary btn-sm" href="/Rental/Edit?id=@item.RentalID">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Rental/Delete?id=@item.RentalID">Delete</a>
                 </td>
             </tr>
         }
