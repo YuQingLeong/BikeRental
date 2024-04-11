@@ -28,7 +28,7 @@ namespace BikeRenter.Pages.Bikes
                                 bikeInfo.type = reader.GetString(1);
                                 bikeInfo.model = reader.GetString(2);
                                 bikeInfo.price = "" + reader.GetDecimal(3);
-
+                                bikeInfo.color = reader.GetString(4);
                                 listBikes.Add(bikeInfo);
                             }
                         }
@@ -48,6 +48,7 @@ namespace BikeRenter.Pages.Bikes
         public String type;
         public String model;
         public String price;
+        public String color;
     }
 
 

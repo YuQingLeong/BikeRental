@@ -31,7 +31,7 @@ namespace BikeRenter.Pages.Bikes
                                 bikeInfo.type = reader.GetString(1);
                                 bikeInfo.model = reader.GetString(2);
                                 bikeInfo.price = "" + reader.GetDecimal(3);
-                            
+                                bikeInfo.color = reader.GetString(4);
                             }
                         }
                     }
@@ -51,10 +51,11 @@ namespace BikeRenter.Pages.Bikes
             bikeInfo.type = Request.Form["type"];
             bikeInfo.model = Request.Form["model"];
             bikeInfo.price = Request.Form["price"];
+            bikeInfo.price = Request.Form["color"];
 
 
 
-            if (bikeInfo.BikeID.Length == 0 || bikeInfo.type.Length == 0 || bikeInfo.model.Length == 0 || bikeInfo.price.Length == 0 )
+            if (bikeInfo.BikeID.Length == 0 || bikeInfo.type.Length == 0 || bikeInfo.model.Length == 0 || bikeInfo.price.Length == 0 ||bikeInfo.color.Length == 0 )
             {
                 errorMessage = "All the field are required";
                 return;
@@ -67,7 +68,7 @@ namespace BikeRenter.Pages.Bikes
                 {
                     connection.Open();
                     String sql = "UPDATE Bikes " +
-                                 "SET type=@type, model=@model, price=@price " +
+                                 "SET type=@type, model=@model, price=@price, color=@color " +
                                  "WHERE BikeID=@BikeID";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -75,6 +76,7 @@ namespace BikeRenter.Pages.Bikes
                         command.Parameters.AddWithValue("@model", bikeInfo.model);
                         command.Parameters.AddWithValue("@price", bikeInfo.price);   
                         command.Parameters.AddWithValue("@BikeID", bikeInfo.BikeID);
+                        command.Parameters.AddWithValue("@color", bikeInfo.color);
 
                         command.ExecuteNonQuery();
                     }

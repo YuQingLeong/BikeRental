@@ -17,8 +17,9 @@ namespace BikeRenter.Pages.Bikes
             bikeInfo.type = Request.Form["type"];
             bikeInfo.model = Request.Form["model"];
             bikeInfo.price = Request.Form["price"];
+            bikeInfo.price = Request.Form["color"];
 
-            if (bikeInfo.type.Length == 0 || bikeInfo.model.Length == 0 || bikeInfo.price.Length == 0)
+            if (bikeInfo.type.Length == 0 || bikeInfo.model.Length == 0 || bikeInfo.price.Length == 0 || bikeInfo.color.Length == 0)
             {
                 errorMessage = "All the field are required";
                 return;
@@ -39,6 +40,7 @@ namespace BikeRenter.Pages.Bikes
                         command.Parameters.AddWithValue("@type", bikeInfo.type);
                         command.Parameters.AddWithValue("@model", bikeInfo.model);
                         command.Parameters.AddWithValue("@price", bikeInfo.price);
+                        command.Parameters.AddWithValue("@price", bikeInfo.color);
 
                         command.ExecuteNonQuery();
                     }
@@ -54,7 +56,7 @@ namespace BikeRenter.Pages.Bikes
             bikeInfo.type = "";
             bikeInfo.model = "";
             bikeInfo.price = "";
-
+            bikeInfo.color = "";
             successMessage = "New Bikes Added Correctly";
 
             Response.Redirect("/Bikes/Index");
