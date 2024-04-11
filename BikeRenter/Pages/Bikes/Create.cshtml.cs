@@ -17,7 +17,7 @@ namespace BikeRenter.Pages.Bikes
             bikeInfo.type = Request.Form["type"];
             bikeInfo.model = Request.Form["model"];
             bikeInfo.price = Request.Form["price"];
-            bikeInfo.price = Request.Form["color"];
+            bikeInfo.color = Request.Form["color"];
 
             if (bikeInfo.type.Length == 0 || bikeInfo.model.Length == 0 || bikeInfo.price.Length == 0 || bikeInfo.color.Length == 0)
             {
