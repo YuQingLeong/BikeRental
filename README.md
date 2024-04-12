@@ -1,4 +1,4 @@
-# Project: Bike Rental (EasyBike Rental Management System)
+# Bike Rental (EasyBike Rental Management System)
 
 ## Group Members
 - Yu Qing Leong
