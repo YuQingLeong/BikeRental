@@ -30,9 +30,8 @@
   - `e66b41c`: Testing.
   - `42b4407`: Update.
   - `368cac7`: Create Table.
-  - `af545fd`: Add project files.
-  - `8f5763b`: Add .gitattributes and .gitignore.
 - Khang Duong:
+  - `2131d13`: Adding Git Commits in README.md file.
   - `c5cc03e`: Update README.md.
   - `5bb6ce4`: Rename project.md to README.md.
   - `d9ffc65`: Create project.md.
