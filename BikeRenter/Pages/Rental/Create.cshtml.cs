@@ -34,8 +34,8 @@ namespace BikeRenter.Pages.Rental
                 {
                     connection.Open();
                     String sql = "INSERT INTO Rental " +
-                                 "(CustomerID, BikeID, PaymentID, rentalDuration, rentalStartTime) VALUES " +
-                                 "(@CustomerID, @BikeID, @PaymentID, @rentalDuration, @rentalStartTime);";
+                                 "(CustomerID, BikeID, rentalDuration, rentalStartTime) VALUES " +
+                                 "(@CustomerID, @BikeID, @rentalDuration, @rentalStartTime);";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@CustomerID", rentalInfo.CustomerID);

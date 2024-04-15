@@ -51,7 +51,7 @@ namespace BikeRenter.Pages.Bikes
             bikeInfo.type = Request.Form["type"];
             bikeInfo.model = Request.Form["model"];
             bikeInfo.price = Request.Form["price"];
-            bikeInfo.price = Request.Form["color"];
+            bikeInfo.color = Request.Form["color"];
 
 
 

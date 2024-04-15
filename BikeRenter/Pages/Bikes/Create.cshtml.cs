@@ -33,14 +33,14 @@ namespace BikeRenter.Pages.Bikes
                 {
                     connection.Open();
                     String sql = "INSERT INTO Bikes " +
-                                 "(type, model, price) VALUES " +
-                                 "(@type, @model, @price);";
+                                 "(type, model, price, color) VALUES " +
+                                 "(@type, @model, @price, @color);";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@type", bikeInfo.type);
                         command.Parameters.AddWithValue("@model", bikeInfo.model);
                         command.Parameters.AddWithValue("@price", bikeInfo.price);
-                        command.Parameters.AddWithValue("@price", bikeInfo.color);
+                        command.Parameters.AddWithValue("@color", bikeInfo.color);
 
                         command.ExecuteNonQuery();
                     }

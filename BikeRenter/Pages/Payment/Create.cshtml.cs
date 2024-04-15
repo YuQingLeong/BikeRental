@@ -17,7 +17,7 @@ namespace BikeRenter.Pages.Payment
         public void OnPost()
         {
             paymentInfo.CustomerID = Request.Form["CustomerID"];
-            paymentInfo.CustomerID = Request.Form["RentalID"];
+            paymentInfo.RentalID = Request.Form["RentalID"];
             paymentInfo.Method = Request.Form["Method"];
             paymentInfo.Amount = Request.Form["Amount"];
             paymentInfo.Time = Request.Form["Time"];

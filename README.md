@@ -19,18 +19,15 @@
   - `d4cdd13`: Update Payment.sql.
   - `f43ff0f`: Update Rental.sql.
   - `0144955`: Added edit & delete button for Bikes Table.
-  - `f223471`: -.
-  - `68c18ed`: Readded bikes mainpage.
   - `1aa8196`: Delete BikeRenter/Pages/Bikes directory.
   - `f2c3bb1`: Create Mainpage for Bikes.
   - `adac73c`: Added delete button.
   - `6e53b3f`: Added Edit Button for Customer Table.
   - `0485306`: Added CREATE.cshtml.
   - `9d3ef54`: Added Create razor page.
-  - `e66b41c`: Testing.
-  - `42b4407`: Update.
   - `368cac7`: Create Table.
 - Khang Duong:
+  - `1ad9198`: Final Commit (No more changes) - Thanks.
   - `2131d13`: Adding Git Commits in README.md file.
   - `c5cc03e`: Update README.md.
   - `5bb6ce4`: Rename project.md to README.md.
