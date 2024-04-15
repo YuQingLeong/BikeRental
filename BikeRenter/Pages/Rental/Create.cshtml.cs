@@ -17,11 +17,10 @@ namespace BikeRenter.Pages.Rental
         {
             rentalInfo.CustomerID = Request.Form["CustomerID"];
             rentalInfo.BikeID = Request.Form["BikeID"];
-            rentalInfo.PaymentID = Request.Form["PaymentID"];
             rentalInfo.rentalDuration = Request.Form["rentalDuration"];
             rentalInfo.rentalStartTime = Request.Form["rentalStartTime"];
 
-            if (rentalInfo.CustomerID.Length == 0 || rentalInfo.BikeID.Length == 0 || rentalInfo.PaymentID.Length == 0 || rentalInfo.rentalDuration.Length == 0 || rentalInfo.rentalStartTime.Length == 0)
+            if (rentalInfo.CustomerID.Length == 0 || rentalInfo.BikeID.Length == 0 || rentalInfo.rentalDuration.Length == 0 || rentalInfo.rentalStartTime.Length == 0)
             {
                 errorMessage = "All the field are required";
                 return;
@@ -41,7 +40,6 @@ namespace BikeRenter.Pages.Rental
                     {
                         command.Parameters.AddWithValue("@CustomerID", rentalInfo.CustomerID);
                         command.Parameters.AddWithValue("@BikeID", rentalInfo.BikeID);
-                        command.Parameters.AddWithValue("@PaymentID", rentalInfo.PaymentID);
                         command.Parameters.AddWithValue("@rentalDuration", rentalInfo.rentalDuration);
                         command.Parameters.AddWithValue("@rentalStartTime", rentalInfo.rentalStartTime);
 
@@ -58,7 +56,6 @@ namespace BikeRenter.Pages.Rental
 
             rentalInfo.CustomerID = "";
             rentalInfo.BikeID = "";
-            rentalInfo.PaymentID = "";
             rentalInfo.rentalDuration = "";
             rentalInfo.rentalStartTime = "";
 

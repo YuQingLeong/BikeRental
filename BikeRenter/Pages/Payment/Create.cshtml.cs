@@ -17,11 +17,12 @@ namespace BikeRenter.Pages.Payment
         public void OnPost()
         {
             paymentInfo.CustomerID = Request.Form["CustomerID"];
+            paymentInfo.CustomerID = Request.Form["RentalID"];
             paymentInfo.Method = Request.Form["Method"];
             paymentInfo.Amount = Request.Form["Amount"];
             paymentInfo.Time = Request.Form["Time"];
 
-            if (paymentInfo.CustomerID.Length == 0 || paymentInfo.Method.Length == 0 || paymentInfo.Amount.Length == 0 || paymentInfo.Time.Length == 0)
+            if (paymentInfo.CustomerID.Length == 0 || paymentInfo.RentalID.Length == 0 || paymentInfo.Method.Length == 0 || paymentInfo.Amount.Length == 0 || paymentInfo.Time.Length == 0)
             {
                 errorMessage = "All the field are required";
                 return;
@@ -35,11 +36,12 @@ namespace BikeRenter.Pages.Payment
                 {
                     connection.Open();
                     String sql = "INSERT INTO Payment " +
-                                 "(CustomerID, Method, Amount, Time) VALUES " +
-                                 "(@CustomerID, @Method, @Amount, @Time);";
+                                 "(CustomerID, RentalID, Method, Amount, Time) VALUES " +
+                                 "(@CustomerID, @RentalID, @Method, @Amount, @Time);";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@CustomerID", paymentInfo.CustomerID);
+                        command.Parameters.AddWithValue("@RentalID", paymentInfo.RentalID);
                         command.Parameters.AddWithValue("@Method", paymentInfo.Method);
                         command.Parameters.AddWithValue("@Amount", paymentInfo.Amount);
                         command.Parameters.AddWithValue("@Time", paymentInfo.Time);
@@ -56,6 +58,7 @@ namespace BikeRenter.Pages.Payment
             }
 
             paymentInfo.CustomerID = "";
+            paymentInfo.RentalID = "";
             paymentInfo.Method = "";
             paymentInfo.Amount = "";
             paymentInfo.Time = "";

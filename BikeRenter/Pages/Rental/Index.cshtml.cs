@@ -16,7 +16,9 @@ namespace BikeRenter.Pages.Rental
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sql = "SELECT * FROM Rental";
+                    String sql = "SELECT r.RentalID, c.name, b.type, r.rentalDuration, r.rentalStartTime " +
+                        "FROM Rental r INNER JOIN Customer c ON r.CustomerID = c.CustomerID " +
+                        "INNER JOIN Bikes b ON r.BikeID = b.BikeID";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -25,11 +27,10 @@ namespace BikeRenter.Pages.Rental
                             {
                                 RentalInfo rentalInfo = new RentalInfo();
                                 rentalInfo.RentalID = "" + reader.GetInt32(0);
-                                rentalInfo.CustomerID = "" + reader.GetInt32(1);
-                                rentalInfo.BikeID = "" + reader.GetInt32(2);
-                                rentalInfo.PaymentID = "" + reader.GetInt32(3);
-                                rentalInfo.rentalDuration = "" + reader.GetDecimal(4);
-                                rentalInfo.rentalStartTime = "" + reader.GetDateTime(5);
+                                rentalInfo.CustomerID = "" + reader.GetString(1);
+                                rentalInfo.BikeID = "" + reader.GetString(2);
+                                rentalInfo.rentalDuration = "" + reader.GetDecimal(3);
+                                rentalInfo.rentalStartTime = "" + reader.GetDateTime(4);
 
                                 listRentals.Add(rentalInfo);
                             }
@@ -49,7 +50,6 @@ namespace BikeRenter.Pages.Rental
         public String RentalID;
         public String CustomerID;
         public String BikeID;
-        public String PaymentID;
         public String rentalDuration;
         public String rentalStartTime;
     }

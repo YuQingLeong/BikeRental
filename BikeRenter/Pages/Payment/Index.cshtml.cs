@@ -17,7 +17,8 @@ namespace BikeRenter.Pages.Payment
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    String sql = "SELECT * FROM Payment";
+                    String sql = "SELECT p.PaymentID, c.name, p.RentalID, p.Method, p.Amount, p.Time FROM Payment p " +
+                        "INNER JOIN Customer c ON p.CustomerID = c.CustomerID";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -26,10 +27,11 @@ namespace BikeRenter.Pages.Payment
                             {
                                 PaymentInfo PaymentInfo = new PaymentInfo();
                                 PaymentInfo.PaymentID = "" + reader.GetInt32(0);
-                                PaymentInfo.CustomerID = "" + reader.GetInt32(1);
-                                PaymentInfo.Method = reader.GetString(2);
-                                PaymentInfo.Amount = "" + reader.GetDecimal(3);
-                                PaymentInfo.Time = "" + reader.GetDateTime(4);
+                                PaymentInfo.CustomerID = "" + reader.GetString(1);
+                                PaymentInfo.RentalID = "" + reader.GetInt32(2);
+                                PaymentInfo.Method = reader.GetString(3);
+                                PaymentInfo.Amount = "" + reader.GetDecimal(4);
+                                PaymentInfo.Time = "" + reader.GetDateTime(5);
 
                                 listPayments.Add(PaymentInfo);
                             }
@@ -48,6 +50,7 @@ namespace BikeRenter.Pages.Payment
     {
         public String PaymentID;
         public String CustomerID;
+        public String RentalID;
         public String Method;
         public String Amount;
         public String Time;

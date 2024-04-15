@@ -30,9 +30,10 @@ namespace BikeRenter.Pages.Payment
                             {
                                 paymentInfo.PaymentID = "" + reader.GetInt32(0);
                                 paymentInfo.CustomerID = "" + reader.GetInt32(1);
-                                paymentInfo.Method = reader.GetString(2);
-                                paymentInfo.Amount = "" + reader.GetDecimal(3);
-                                paymentInfo.Time = "" + reader.GetDateTime(4);
+                                paymentInfo.RentalID = "" + reader.GetInt32(2);
+                                paymentInfo.Method = reader.GetString(3);
+                                paymentInfo.Amount = "" + reader.GetDecimal(4);
+                                paymentInfo.Time = "" + reader.GetDateTime(5);
 
                             }
                         }
@@ -49,13 +50,14 @@ namespace BikeRenter.Pages.Payment
         {
             paymentInfo.PaymentID = Request.Form["PaymentID"];
             paymentInfo.CustomerID = Request.Form["CustomerID"];
+            paymentInfo.RentalID = Request.Form["RentalID"];
             paymentInfo.Method = Request.Form["Method"];
             paymentInfo.Amount = Request.Form["Amount"];
             paymentInfo.Time = Request.Form["Time"];
 
 
 
-            if (paymentInfo.PaymentID.Length == 0 || paymentInfo.CustomerID.Length == 0 || paymentInfo.Method.Length == 0 || paymentInfo.Amount.Length == 0 || paymentInfo.Time.Length == 0)
+            if (paymentInfo.PaymentID.Length == 0 || paymentInfo.CustomerID.Length == 0 || paymentInfo.RentalID.Length == 0 || paymentInfo.Method.Length == 0 || paymentInfo.Amount.Length == 0 || paymentInfo.Time.Length == 0)
             {
                 errorMessage = "All the field are required";
                 return;
@@ -68,12 +70,13 @@ namespace BikeRenter.Pages.Payment
                 {
                     connection.Open();
                     String sql = "UPDATE Payment " +
-                                 "SET CustomerID=@CustomerID, Method=@Method, Amount=@Amount, Time=@Time " +
+                                 "SET CustomerID=@CustomerID, RentalID=@RentalID, Method=@Method, Amount=@Amount, Time=@Time " +
                                  "WHERE PaymentID=@PaymentID";
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.Parameters.AddWithValue("@PaymentID", paymentInfo.PaymentID);
                         command.Parameters.AddWithValue("@CustomerID", paymentInfo.CustomerID);
+                        command.Parameters.AddWithValue("@RentalID", paymentInfo.RentalID);
                         command.Parameters.AddWithValue("@Method", paymentInfo.Method);
                         command.Parameters.AddWithValue("@Amount", paymentInfo.Amount);
                         command.Parameters.AddWithValue("@Time", paymentInfo.Time);
