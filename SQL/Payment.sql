@@ -9,7 +9,7 @@ CREATE TABLE Payment (
 
 INSERT INTO Payment (CustomerID, Method, Amount, Time)
 VALUES 
-(1, 'Credit Card', 20.00, '2024-03-18 11:00:00'),
-(2, 'Credit Card', 25.00, '2024-03-18 13:00:00'),
-(4, 'Cash', 20.00, '2024-03-20 10:00:00'),
-(7, 'Online Transfer', 30.00, '2024-03-20 15:00:00');
+(1, 'Credit Card', 75.00, '2024-03-18 11:00:00'),
+(2, 'Credit Card', 40.00, '2024-03-18 13:00:00'),
+(4, 'Cash', 60.00, '2024-03-20 10:00:00'),
+(7, 'Online Transfer', 92.00, '2024-03-20 15:00:00');
